@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import QuizGame from "@/components/QuizGame";
+import Leaderboard from "@/components/Leaderboard";
+import PageLayout from "@/components/PageLayout";
 
 export const metadata: Metadata = {
     title: "B Branch Stations | Untitled Quiz Website",
@@ -15,10 +17,13 @@ const mbtaGrid = [
 
 export default function MbtaPage() {
     return (
-        <QuizGame
-            quizId="mbta-b-branch"
-            title="B Branch Stations"
-            grid={mbtaGrid}
-        />
+        <PageLayout>
+            <QuizGame
+                quizId="mbta-b-branch"
+                title="B Branch Stations"
+                grid={mbtaGrid}
+            />
+            <Leaderboard quizId="mbta-b-branch" />
+        </PageLayout>
     );
 }

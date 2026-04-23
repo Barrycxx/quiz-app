@@ -8,40 +8,61 @@ type Props = {
 };
 
 const Container = styled.div`
-    margin-top: 2rem;
-    width: 100%;
-    max-width: 600px;
+    font-family: Calibri, Arial, sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #f4f4ff);
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(90, 90, 150, 0.18);
+    padding: 1.5rem;
+    min-width: 280px;
+    max-width: 340px;
+    position: sticky;
+    top: 2rem;
 `;
 
 const Title = styled.h2`
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    text-align: center;
+    padding: 0.75rem 0;
+    font-size: max(1.5vw, 2vh);
+    color: #3d3d8f;
+    margin: 0 0 1rem 0;
 `;
 
 const Table = styled.table`
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0 6px;
 `;
 
-const THead = styled.thead`
-    background-color: #f0f0f0;
-`;
+const THead = styled.thead``;
 
 const TH = styled.th`
-    padding: 0.75rem;
+    padding: 0.5rem 0.75rem;
     text-align: left;
-    border-bottom: 2px solid #ddd;
+    color: #444488;
+    font-size: 0.9rem;
+    border-bottom: 2px solid #d9d9ff;
 `;
 
 const TD = styled.td`
-    padding: 0.75rem;
-    border-bottom: 1px solid #ddd;
+    padding: 0.6rem 0.75rem;
+    color: #444488;
+    font-size: 0.95rem;
+    background: linear-gradient(to bottom, #ffffff, #f2f2fb);
+    border: 1px solid #d9d9ff;
+
+    &:first-child {
+        border-radius: 10px 0 0 10px;
+    }
+
+    &:last-child {
+        border-radius: 0 10px 10px 0;
+    }
 `;
 
-const TR = styled.tr`
-    &:hover {
-        background-color: #fafafa;
-    }
+const EmptyText = styled.p`
+    text-align: center;
+    color: #666699;
+    font-size: 0.95rem;
 `;
 
 function formatTime(seconds: number): string {
@@ -55,34 +76,34 @@ export default function LeaderboardView({ entries }: Props) {
         return (
             <Container>
                 <Title>Leaderboard</Title>
-            <p>No entries yet. Be the first!</p>
-        </Container>
-    );
+                <EmptyText>No entries yet. Be the first!</EmptyText>
+            </Container>
+        );
     }
 
     return (
         <Container>
             <Title>Leaderboard</Title>
-        <Table>
-        <THead>
-            <tr>
-                <TH>#</TH>
-    <TH>Name</TH>
-    <TH>Score</TH>
-    <TH>Time</TH>
-    </tr>
-    </THead>
-    <tbody>
-    {entries.map((entry, index) => (
-            <TR key={entry.id}>
-                <TD>{index + 1}</TD>
-                <TD>{entry.name}</TD>
-                <TD>{entry.score}</TD>
-                <TD>{formatTime(entry.time)}</TD>
-    </TR>
-))}
-    </tbody>
-    </Table>
-    </Container>
-);
+            <Table>
+                <THead>
+                    <tr>
+                        <TH>#</TH>
+                        <TH>Name</TH>
+                        <TH>Score</TH>
+                        <TH>Time</TH>
+                    </tr>
+                </THead>
+                <tbody>
+                {entries.map((entry, index) => (
+                    <tr key={entry.id}>
+                        <TD>{index + 1}</TD>
+                        <TD>{entry.name}</TD>
+                        <TD>{entry.score}</TD>
+                        <TD>{formatTime(entry.time)}</TD>
+                    </tr>
+                ))}
+                </tbody>
+            </Table>
+        </Container>
+    );
 }

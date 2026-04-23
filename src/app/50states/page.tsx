@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import QuizGame from "@/components/QuizGame";
+import Leaderboard from "@/components/Leaderboard";
+import PageLayout from "@/components/PageLayout";
 
 export const metadata: Metadata = {
     title: "50 States | Untitled Quiz Website",
 };
 
-// This grid controls where each answer appears in the table.
 const statesGrid = [
     ["Alabama", "Alaska", "Arizona", "Arkansas", "California"],
     ["Colorado", "Connecticut", "Delaware", "Florida", "Georgia"],
@@ -21,10 +22,13 @@ const statesGrid = [
 
 export default function StatesPage() {
     return (
-        <QuizGame
-            quizId="us-states"
-            title="50 States"
-            grid={statesGrid}
-        />
+        <PageLayout>
+            <QuizGame
+                quizId="us-states"
+                title="50 States"
+                grid={statesGrid}
+            />
+            <Leaderboard quizId="us-states" />
+        </PageLayout>
     );
 }

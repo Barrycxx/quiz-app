@@ -44,7 +44,7 @@ export default function Home() {
       <QuizButtons>
           <QuizButton label={["50 States", "/usaicon.png", "/50states"]} />
           <QuizButton label={["B Branch Stations", "/mbtaicon.png", "/mbta"]} />
-          <QuizButton label={["First 18 Elements", "/hicon.png", "/elements"]} />
+          <QuizButton label={["First 20 Elements", "/hicon.png", "/elements"]} />
       </QuizButtons>
       <br/>
     </StyledMain> 

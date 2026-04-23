@@ -1,26 +1,27 @@
+"use client";
+
 import styled from "styled-components";
 
 const StyledFooter = styled.footer`
-    margin-left: 20vw;
-    margin-right: 20vw;
-    text-align: left;
+    width: 100%;
+    background: linear-gradient(to right, #7b7bef, #9999ff);
     font-family: Calibri, Arial, sans-serif;
-    font-style: italic;
-    background-color: #9999ff;
-    color: black;
-    `
+    padding: 1rem 4rem;
+    box-shadow: 0 -4px 12px rgba(90, 90, 150, 0.2);
+    margin-top: auto;
+`;
 
 const StyledP = styled.p`
     text-align: center;
-    `
+    color: #eeeeff;
+    font-size: max(0.9vw, 1.2vh);
+    margin: 0;
+`;
 
-
-export default function Header() {
-  return (
-    <main>
-      <StyledFooter>
-        <StyledP>&copy; Chen, Margosian, Oladipupo 2026. All rights reserved.</StyledP>
-      </StyledFooter>
-    </main> 
-  );
+export default function Footer() {
+    return (
+        <StyledFooter>
+            <StyledP>&copy; Chen, Margosian, Oladipupo 2026. All rights reserved.</StyledP>
+        </StyledFooter>
+    );
 }

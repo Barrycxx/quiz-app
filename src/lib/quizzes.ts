@@ -33,13 +33,13 @@ export const quizzes: Quiz[] = [
         ],
     },
     {
-        id: "first-18-elements",
-        title: "First 18 Elements",
+        id: "first-20-elements",
+        title: "First 20 Elements",
         answers: [
             "Hydrogen", "Helium", "Lithium", "Beryllium", "Boron",
             "Carbon", "Nitrogen", "Oxygen", "Fluorine", "Neon",
             "Sodium", "Magnesium", "Aluminum", "Silicon", "Phosphorus",
-            "Sulfur", "Chlorine", "Argon"
+            "Sulfur", "Chlorine", "Argon","Potassium", "Calcium"
         ],
     },
 ];
