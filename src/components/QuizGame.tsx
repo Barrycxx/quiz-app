@@ -367,12 +367,12 @@ export default function QuizGame({ quizId, title, grid }: QuizGameProps) {
         setInputValue("");
         setMessage(`Correct: ${matchedAnswer}`);
         setMessageType("success");
+        setAnswersRevealedAtEnd(false);
 
         if (updatedAnswers.length === totalAnswers) {
             setStarted(false);
             setMessage(`Finished! Final time: ${formatTime(seconds)}`);
             setMessageType("success");
-            setAnswersRevealedAtEnd(false);
         }
     }
 
@@ -393,7 +393,7 @@ export default function QuizGame({ quizId, title, grid }: QuizGameProps) {
     }
 
     const canRevealRemainingAnswers =
-        totalAnswers > 0 && revealedAnswers.length < totalAnswers;
+        started && totalAnswers > 0 && revealedAnswers.length < totalAnswers;
 
     return (
         <StyledMain>

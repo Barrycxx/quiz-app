@@ -6,6 +6,8 @@ import QuizGame from "@/components/QuizGame";
 import Leaderboard from "@/components/Leaderboard";
 import PageLayout from "@/components/PageLayout";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
     title: "First 20 Elements | Untitled Quiz Website",
 };
@@ -14,7 +16,7 @@ const elementsGrid = [
     ["Hydrogen", "Helium", "Lithium", "Beryllium", "Boron"],
     ["Carbon", "Nitrogen", "Oxygen", "Fluorine", "Neon"],
     ["Sodium", "Magnesium", "Aluminum", "Silicon", "Phosphorus"],
-    ["Sulfur", "Chlorine", "Argon","Potassium","Calcium"],
+    ["Sulfur", "Chlorine", "Argon", "Potassium", "Calcium"],
 ];
 
 export default function ElementsPage() {

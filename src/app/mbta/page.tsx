@@ -6,6 +6,8 @@ import QuizGame from "@/components/QuizGame";
 import Leaderboard from "@/components/Leaderboard";
 import PageLayout from "@/components/PageLayout";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
     title: "B Branch Stations | Untitled Quiz Website",
 };
