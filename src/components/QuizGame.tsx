@@ -19,6 +19,7 @@ This component handles the quiz logic for:
 */
 
 import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import styled from "styled-components";
 import { getQuizById } from "@/lib/quizzes";
 import NameEntryModal from "@/components/NameEntry";
@@ -263,6 +264,7 @@ function getHintText(quizId: string): string {
 
 export default function QuizGame({ quizId, title, grid }: QuizGameProps) {
     const quiz = getQuizById(quizId);
+    const router = useRouter();
 
     const [started, setStarted] = useState(false);
     const [inputValue, setInputValue] = useState("");
@@ -272,7 +274,6 @@ export default function QuizGame({ quizId, title, grid }: QuizGameProps) {
     const [messageType, setMessageType] = useState<MessageType>("neutral");
     const [answersRevealedAtEnd, setAnswersRevealedAtEnd] = useState(false);
     const [showNameEntry, setShowNameEntry] = useState(false);
-    const [leaderboardRefreshKey, setLeaderboardRefreshKey] = useState(0);
 
     const totalAnswers = quiz?.answers.length ?? 0;
 
@@ -392,7 +393,8 @@ export default function QuizGame({ quizId, title, grid }: QuizGameProps) {
     }
 
     function handleSubmitted() {
-        setLeaderboardRefreshKey((prev) => prev + 1);
+        setShowNameEntry(false);
+        router.refresh();
     }
 
     const canRevealRemainingAnswers =
@@ -481,7 +483,6 @@ export default function QuizGame({ quizId, title, grid }: QuizGameProps) {
 
             {showNameEntry && (
                 <NameEntryModal
-                    key={`${quizId}-${leaderboardRefreshKey}`}
                     quizId={quizId}
                     score={revealedAnswers.length}
                     time={seconds}
